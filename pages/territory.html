@@ -1,0 +1,208 @@
+
+<section class="page-section" id="territory">
+
+  <div class="welcome">
+    <div>
+      <h1 data-i18n="territoryTitle">🌻 Моя территория</h1>
+      <p data-i18n="territoryDescription">Земля, пастбища и границы твоей фермы.</p>
+    </div>
+  </div>
+
+  <!-- ОСНОВНАЯ ОБЛАСТЬ -->
+  <div class="territory-layout">
+
+    <!-- КАРТА И УЧАСТКИ -->
+    <div class="territory-map-column">
+
+      <div class="panel territory-map-panel">
+
+        <div class="territory-map-header">
+          <div>
+            <h2 data-i18n="farmMap">🗺️ Карта моей фермы</h2>
+            <p style="color:var(--muted);font-size:13px" data-i18n="farmWorld">
+              Твоя ферма — твой собственный живой мир.
+            </p>
+          </div>
+
+          <button type="button" id="toggleDrawingToolsBtn" data-i18n="newTerritory">
+            ＋ Новая территория
+          </button>
+        </div>
+
+        <!-- КАРТА -->
+        <div
+          id="farmMap"
+          style="
+            width:100%;
+            height:500px;
+            border-radius:14px;
+            overflow:hidden;
+            background:#e8eee5;
+          "
+        ></div>
+
+        <!-- ИНСТРУМЕНТЫ РАЗМЕТКИ -->
+        <div id="territoryDrawingTools" style="display:none">
+
+          <h3 data-i18n="drawingTitle">📍 Разметка нового участка</h3>
+
+          <p style="color:var(--muted);font-size:13px" data-i18n="drawingDescription">
+            Отметь на карте точки по границе своей земли.
+            Мы автоматически рассчитаем площадь участка.
+          </p>
+
+          <div style="margin-top:15px">
+            <label for="farmPlotName" data-i18n="plotNameLabel">Название участка</label>
+            <input
+              type="text"
+              id="farmPlotName"
+              data-i18n-placeholder="plotNamePlaceholder"
+              placeholder="Например: Северное пастбище"
+              style="width:100%;margin-top:7px"
+            >
+          </div>
+
+          <div style="
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            margin-top:15px;
+          ">
+            <button type="button" id="startDrawingBtn" data-i18n="startDrawing">
+              ✏️ Начать разметку
+            </button>
+
+            <button type="button" id="finishDrawingBtn" data-i18n="finishDrawing">
+              📐 Завершить участок
+            </button>
+
+            <button type="button" id="cancelDrawingBtn" data-i18n="cancelDrawing">
+              ✖ Отменить
+            </button>
+
+            <button type="button" id="saveDrawingBtn" data-i18n="savePlot">
+              💾 Сохранить участок
+            </button>
+          </div>
+
+          <div
+            id="drawingStatus"
+            style="
+              margin-top:15px;
+              padding:12px;
+              border-radius:10px;
+              background:var(--bg);
+              font-size:13px;
+            "
+            data-i18n="drawingWaiting"
+          >
+            Ожидание начала разметки.
+          </div>
+
+          <div style="
+            display:flex;
+            gap:12px;
+            flex-wrap:wrap;
+            margin-top:15px;
+          ">
+            <div class="stat-card" style="flex:1;min-width:130px">
+              <div class="stat-label" data-i18n="markedPoints">Отмечено точек</div>
+              <div class="stat-value" id="drawingPointsCount">0</div>
+            </div>
+
+            <div class="stat-card" style="flex:1;min-width:130px">
+              <div class="stat-label" data-i18n="plotArea">Площадь участка</div>
+              <div class="stat-value" id="drawingArea">0 га</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- СОХРАНЁННЫЕ УЧАСТКИ -->
+      <div class="panel" style="margin-top:17px">
+
+        <h2 data-i18n="myPlots">🌳 Мои участки</h2>
+
+        <div style="margin-bottom:15px">
+          <div class="stat-label" data-i18n="allPlotsArea">Общая площадь всех участков</div>
+          <div class="stat-value" id="totalFarmArea">0 га</div>
+        </div>
+
+        <div id="farmPlotsList">
+          <p style="color:var(--muted);font-size:13px" data-i18n="noPlots">
+            Пока участки не добавлены.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- GPS СПРАВА -->
+    <div class="territory-gps-column">
+
+      <div class="panel territory-gps-panel">
+
+        <h2 data-i18n="gps">📡 GPS-трекер</h2>
+
+        <p style="color:var(--muted);font-size:13px" data-i18n="gpsDescription">
+          Следи за передвижением животных по ферме.
+        </p>
+
+        <div style="
+          display:flex;
+          flex-direction:column;
+          gap:12px;
+          margin-top:15px;
+        ">
+
+          <div class="stat-card">
+            <div class="stat-label" data-i18n="gpsTotalLabel">🐾 Всего животных</div>
+            <div class="stat-value" id="gpsTotalAnimals">0</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label" data-i18n="gpsActiveLabel">🏡 На территории</div>
+            <div class="stat-value" id="gpsActiveAnimals">0</div>
+          </div>
+
+        </div>
+
+        <div
+          id="gpsStatus"
+          style="
+            margin-top:15px;
+            padding:12px;
+            border-radius:10px;
+            background:var(--bg);
+            font-size:13px;
+          "
+        >
+          ⚪ GPS-симуляция остановлена.
+        </div>
+
+        <div style="
+          display:flex;
+          flex-direction:column;
+          gap:10px;
+          margin-top:15px;
+        ">
+          <button type="button" id="startGpsBtn" data-i18n="startGps">
+            ▶ Запустить GPS
+          </button>
+
+          <button type="button" id="stopGpsBtn" data-i18n="stopGps">
+            ⏸ Остановить GPS
+          </button>
+        </div>
+
+        <div id="gpsAnimalList" style="display:none"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

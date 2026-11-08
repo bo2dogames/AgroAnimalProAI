@@ -1,0 +1,84 @@
+
+<section class="page-section" id="health">
+
+  <div class="welcome">
+    <div>
+      <h1 data-i18n="healthTitle">Здоровье животных 💚</h1>
+      <p data-i18n="healthSubtitle">Мониторинг состояния и контроль здоровья твоего стада.</p>
+    </div>
+  </div>
+
+  <!-- ОБЩАЯ СТАТИСТИКА -->
+  <div class="stats">
+
+    <div class="stat">
+      <div class="stat-top">
+        <div class="stat-label" data-i18n="healthTotalLabel">ВСЕГО ЖИВОТНЫХ</div>
+        <div class="stat-icon">🐮</div>
+      </div>
+      <div class="stat-value" id="healthTotalCount">0</div>
+      <div class="stat-note" data-i18n="healthTotalNote">В твоём хозяйстве</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-top">
+        <div class="stat-label" data-i18n="healthNormalLabel">НАЧАЛЬНЫЙ СТАТУС</div>
+        <div class="stat-icon">💚</div>
+      </div>
+      <div class="stat-value" id="healthNormalCount">0</div>
+      <div class="stat-note" data-i18n="healthNormalNote">Без оценки датчика</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-top">
+        <div class="stat-label" data-i18n="healthAttentionLabel">ТРЕБУЮТ ВНИМАНИЯ</div>
+        <div class="stat-icon">🔔</div>
+      </div>
+      <div class="stat-value" id="healthAttentionCount">0</div>
+      <div class="stat-note" data-i18n="healthAttentionNote">Предупреждения</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-top">
+        <div class="stat-label" data-i18n="healthCollarLabel">ОШЕЙНИКИ</div>
+        <div class="stat-icon">📡</div>
+      </div>
+      <div class="stat-value" id="healthCollarCount">0</div>
+      <div class="stat-note" data-i18n="healthCollarNote">Подключённых устройств</div>
+    </div>
+
+  </div>
+
+  <!-- ИНФОРМАЦИЯ О МОНИТОРИНГЕ -->
+  <div class="panel">
+    <h2 data-i18n="healthMonitoringTitle">📡 Система мониторинга</h2>
+
+    <p>
+      <strong data-i18n="healthSmartCollars">Умные ошейники:</strong>
+      <span id="collarSystemStatus" data-i18n="healthCollarStatus">Пока не подключены</span>
+    </p>
+
+    <p data-i18n="healthMonitoringDescription">
+      Когда ошейники появятся, система сможет получать
+      показатели животных и автоматически отслеживать
+      изменения их состояния.
+    </p>
+
+    <p style="color:var(--muted);font-size:12px" data-i18n="healthSensorWarning">
+      Пока датчики не подключены, медицинская оценка
+      состояния животных не производится.
+    </p>
+  </div>
+
+  <!-- СПИСОК ЖИВОТНЫХ -->
+  <div class="panel">
+    <div class="panel-heading">
+      <h2 data-i18n="healthAnimalListTitle">🐾 Здоровье каждого животного</h2>
+    </div>
+
+    <div id="healthAnimalList">
+      <p data-i18n="healthLoading">Загрузка списка животных...</p>
+    </div>
+  </div>
+
+</section>

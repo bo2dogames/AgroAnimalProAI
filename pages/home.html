@@ -1,0 +1,129 @@
+
+<!-- HOME -->
+<section class="page-section active" id="home">
+
+  <div class="welcome">
+    <div>
+      <h1 id="welcomeFarmTitle" data-i18n="welcomeFarmTitle">
+  Добро пожаловать в «Моя ферма»! 👋
+</h1>
+      <p data-i18n="farmWorld">Твоя ферма — твой собственный живой мир.</p>
+    </div>
+    <div class="date-pill" data-i18n="goodFarmDay">☀️ Хороший день на ферме</div>
+  </div>
+
+  <div class="stats">
+
+    <div class="stat">
+      <div class="stat-top">
+        <div class="stat-label" data-i18n="totalAnimalsLabel">ВСЕГО ЖИВОТНЫХ</div>
+        <div class="stat-icon">🐮</div>
+      </div>
+      <div class="stat-value" id="totalAnimalCount">0</div>
+      <div class="stat-note" data-i18n="yourPets">Твои питомцы</div>
+    </div>
+
+    <div class="stat" onclick="showPage('territory')" style="cursor:pointer">
+      <div class="stat-top">
+        <div class="stat-label" data-i18n="territoryLabel">ТЕРРИТОРИЯ</div>
+        <div class="stat-icon">🌳</div>
+      </div>
+      <div class="stat-value" id="homeFarmArea">0 га</div>
+      <div class="stat-note" data-i18n="totalFarmArea">Общая площадь фермы</div>
+    </div>
+
+    <div class="stat" onclick="showPage('health')" style="cursor:pointer">
+      <div class="stat-top">
+        <div class="stat-label" data-i18n="allGood">ВСЁ ХОРОШО</div>
+        <div class="stat-icon">💚</div>
+      </div>
+      <div class="stat-value" id="homeHealthyCount">0</div>
+      <div class="stat-note" data-i18n="collarConfirmed">Подтверждено ошейником</div>
+    </div>
+
+    <div class="stat" onclick="showPage('health')" style="cursor:pointer">
+      <div class="stat-top">
+        <div class="stat-label" data-i18n="needsAttention">НУЖНО ВНИМАНИЕ</div>
+        <div class="stat-icon">🔔</div>
+      </div>
+      <div class="stat-value" id="homeAttentionCount">0</div>
+      <div class="stat-note" style="color:#d28a35" data-i18n="checkCondition">Проверить состояние</div>
+    </div>
+
+  </div>
+
+  <!-- ИГРОВАЯ ФЕРМА -->
+  <div class="farm-game">
+    <div class="farm-paddock-grid" id="farmPaddockGrid">
+      <!-- Загоны создаются автоматически через JavaScript -->
+    </div>
+
+    <!-- Сохраняем старый ID для совместимости -->
+    <div id="farmAnimalScene" hidden></div>
+  </div>
+
+  <div class="content-grid">
+
+    <!-- МОИ ЖИВОТНЫЕ -->
+    <div class="panel">
+      <div class="panel-heading">
+        <h2 data-i18n="myAnimals">🐾 Мои животные</h2>
+        <button onclick="showPage('animals')" data-i18n="allAnimals">Все животные →</button>
+      </div>
+
+      <div class="home-recent" id="recentAnimals"></div>
+    </div>
+
+    <!-- СОБЫТИЯ ФЕРМЫ -->
+    <div class="panel">
+      <div class="panel-heading">
+        <h2 data-i18n="farmEvents">🔔 События фермы</h2>
+      </div>
+
+      <div class="alert">
+        <div class="alert-icon">⚠️</div>
+        <div>
+          <div class="alert-title" data-i18n="pushinkaAttention">Пушинка требует внимания</div>
+          <div class="alert-text" data-i18n="demoWarning">
+            Демонстрационное предупреждение: проверь активность животного.
+          </div>
+        </div>
+      </div>
+
+      <div class="alert" style="background:#eef7e8;border-color:#d8e9cb">
+        <div class="alert-icon">🌤️</div>
+        <div>
+          <div class="alert-title" data-i18n="dayPlan">План на день</div>
+          <div class="alert-text" data-i18n="weatherReminder">
+            Проверь погодные условия перед выгулом животных.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- БЫСТРЫЕ ДЕЙСТВИЯ -->
+  <div class="quick-actions">
+
+    <button class="action" onclick="showPage('animals'); openAnimalForm()">
+      <span>🐮</span>
+      <span data-i18n="addAnimal">Добавить животное</span>
+      <small data-i18n="addAnimalDescription">Пополнить свою ферму</small>
+    </button>
+
+    <button class="action" onclick="showPage('territory')">
+      <span>🗺️</span>
+      <span data-i18n="myTerritoryAction">Моя территория</span>
+      <small data-i18n="territoryDescription">Посмотреть поля и границы</small>
+    </button>
+
+    <button class="action" onclick="showPage('ai')">
+      <span>✨</span>
+      <span data-i18n="askAI">Спросить AI</span>
+      <small data-i18n="askAIDescription">Получить совет для фермы</small>
+    </button>
+
+  </div>
+
+</section>

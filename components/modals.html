@@ -1,0 +1,213 @@
+<!-- ОКНО ДОБАВЛЕНИЯ ЖИВОТНОГО -->
+<div class="animal-modal-overlay" id="animalModal">
+  <div class="animal-modal">
+
+    <div class="animal-modal-header">
+      <h2 data-i18n="newAnimal">Новое животное</h2>
+      <button type="button" onclick="closeAnimalForm()">✕</button>
+    </div>
+
+    <form id="animalForm">
+
+      <label data-i18n="animalSpeciesLabel">Вид животного *</label>
+      <select id="animalSpecies" required>
+        <option value="cow" data-i18n="speciesCow">Корова</option>
+        <option value="horse" data-i18n="speciesHorse">Лошадь</option>
+        <option value="pig" data-i18n="speciesPig">Свинья</option>
+        <option value="chicken" data-i18n="speciesChicken">Курица</option>
+        <option value="sheep" data-i18n="speciesSheep">Овца</option>
+        <option value="goat" data-i18n="speciesGoat">Коза</option>
+      </select>
+
+      <label data-i18n="animalNameLabel">Имя животного *</label>
+      <input id="animalName" data-i18n-placeholder="animalNamePlaceholder"
+        placeholder="Например, Белянка" required>
+
+      <label data-i18n="animalIdLabel">Уникальный ID *</label>
+      <input id="animalId" data-i18n-placeholder="animalIdPlaceholder"
+        placeholder="Например, COW-004" required>
+
+      <label data-i18n="animalBreedLabel">Порода</label>
+      <select id="animalBreed">
+        <option value="" data-i18n="chooseBreed">Выбери породу</option>
+      </select>
+
+      <input
+        id="customAnimalBreed"
+        type="text"
+        data-i18n-placeholder="customBreedPlaceholder"
+        placeholder="Введи свою породу"
+        style="display: none;"
+      >
+
+      <label data-i18n="animalColorLabel">Окрас</label>
+      <select id="animalColor">
+        <option value="" data-i18n="chooseColor">Выбери окрас</option>
+      </select>
+
+      <input
+        id="customAnimalColor"
+        type="text"
+        data-i18n-placeholder="customColorPlaceholder"
+        placeholder="Введи свой окрас"
+        style="display: none;"
+      >
+
+      <label data-i18n="animalSexLabel">Пол</label>
+      <select id="animalSex">
+        <option data-i18n="sexFemale">Самка</option>
+        <option data-i18n="sexMale">Самец</option>
+        <option data-i18n="sexUnknown">Неизвестно</option>
+      </select>
+
+      <label data-i18n="animalBirthLabel">Дата рождения</label>
+      <input id="animalBirth" type="date">
+
+      <label data-i18n="animalWeightLabel">Вес (кг)</label>
+      <input id="animalWeight" type="number" min="0" step="0.1">
+
+      <label data-i18n="animalNotesLabel">Заметки</label>
+      <textarea
+        id="animalNotes"
+        data-i18n-placeholder="animalNotesPlaceholder"
+        placeholder="Дополнительная информация"
+      ></textarea>
+
+      <div class="animal-modal-actions">
+        <button type="submit" class="panel-heading button"
+          data-i18n="saveAnimal">
+          Сохранить животное
+        </button>
+
+        <button type="button" onclick="closeAnimalForm()" data-i18n="cancel">
+          Отмена
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+<!-- ПОДРОБНАЯ ИНФОРМАЦИЯ О ЖИВОТНОМ -->
+<div class="animal-modal-overlay" id="animalDetailsModal">
+
+  <div class="animal-modal">
+
+    <div class="animal-modal-header">
+      <h2 data-i18n="animalDetailsTitle">Информация о животном</h2>
+      <button type="button" onclick="closeAnimalDetails()">✕</button>
+    </div>
+
+    <div id="animalDetailsContent"></div>
+
+    <div class="animal-modal-actions">
+      <button
+        type="button"
+        class="animal-delete-button"
+        onclick="deleteCurrentAnimal()"
+        data-i18n="deleteAnimal">
+        🗑 Удалить животное
+      </button>
+
+      <button type="button" onclick="closeAnimalDetails()" data-i18n="close">
+        Закрыть
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ОКНО РЕДАКТИРОВАНИЯ ПРОФИЛЯ ВЛАДЕЛЬЦА -->
+<div class="animal-modal-overlay" id="ownerProfileModal">
+
+  <div class="animal-modal">
+
+    <div class="animal-modal-header">
+      <h2 data-i18n="ownerProfileTitle">👨‍🌾 Профиль владельца</h2>
+      <button type="button" onclick="closeOwnerProfile()">✕</button>
+    </div>
+
+    <form id="ownerProfileForm">
+
+      <label data-i18n="ownerPhotoLabel">Фотография владельца</label>
+      <input
+        type="file"
+        id="ownerPhotoInput"
+        accept="image/*"
+      >
+
+      <div style="margin:12px 0">
+        <label data-i18n="ownerEmojiLabel">Или выбери эмодзи</label>
+
+        <div id="ownerEmojiOptions" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px">
+          <button type="button" class="owner-emoji-option" data-emoji="👨‍🌾">👨‍🌾</button>
+          <button type="button" class="owner-emoji-option" data-emoji="👩‍🌾">👩‍🌾</button>
+          <button type="button" class="owner-emoji-option" data-emoji="🧑‍🌾">🧑‍🌾</button>
+          <button type="button" class="owner-emoji-option" data-emoji="🐮">🐮</button>
+          <button type="button" class="owner-emoji-option" data-emoji="🐴">🐴</button>
+          <button type="button" class="owner-emoji-option" data-emoji="🐑">🐑</button>
+          <button type="button" class="owner-emoji-option" data-emoji="🐷">🐷</button>
+          <button type="button" class="owner-emoji-option" data-emoji="🌻">🌻</button>
+        </div>
+      </div>
+
+      <label data-i18n="ownerNicknameLabel">Никнейм</label>
+      <input
+        type="text"
+        id="ownerNicknameInput"
+        data-i18n-placeholder="ownerNicknamePlaceholder"
+        placeholder="Например, Farmer123"
+      >
+
+      <label data-i18n="ownerFirstNameLabel">Имя</label>
+      <input
+        type="text"
+        id="ownerFirstName"
+        data-i18n-placeholder="ownerFirstNamePlaceholder"
+        placeholder="Твоё имя"
+      >
+
+      <label data-i18n="ownerLastNameLabel">Фамилия</label>
+      <input
+        type="text"
+        id="ownerLastName"
+        data-i18n-placeholder="ownerLastNamePlaceholder"
+        placeholder="Твоя фамилия"
+      >
+
+      <label data-i18n="ownerFarmNameLabel">Название фермы</label>
+      <input
+        type="text"
+        id="ownerFarmNameInput"
+        data-i18n-placeholder="ownerFarmNamePlaceholder"
+        placeholder="Например, Зелёная долина"
+      >
+
+      <label data-i18n="ownerDescriptionLabel">Описание хозяйства</label>
+      <textarea
+        id="ownerDescriptionInput"
+        rows="4"
+        data-i18n-placeholder="ownerDescriptionPlaceholder"
+        placeholder="Расскажи о своей ферме..."
+      ></textarea>
+
+      <div class="animal-modal-actions">
+
+        <button type="submit" data-i18n="saveProfile">
+          💾 Сохранить профиль
+        </button>
+
+        <button type="button" onclick="closeOwnerProfile()" data-i18n="cancel">
+          Отмена
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

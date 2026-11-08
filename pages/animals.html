@@ -1,0 +1,41 @@
+
+<section class="page-section" id="animals">
+
+  <div class="welcome">
+    <div>
+      <h1 data-i18n="animalsTitle">Мои животные 🐾</h1>
+      <p data-i18n="animalsSubtitle">Каждое животное — отдельная история.</p>
+    </div>
+
+    <button class="panel-heading button" onclick="openAnimalForm()" data-i18n="addAnimal">
+      ＋ Добавить животное
+    </button>
+  </div>
+
+  <!-- ФИЛЬТРЫ -->
+  <div class="animal-filters">
+    <button class="animal-filter active" data-species="all" onclick="filterAnimals('all', this)" data-i18n="filterAll">Все</button>
+
+    <button class="animal-filter" data-species="cow" onclick="filterAnimals('cow', this)" data-i18n="filterCows">🐄 Коровы</button>
+
+    <button class="animal-filter" data-species="horse" onclick="filterAnimals('horse', this)" data-i18n="filterHorses">🐎 Лошади</button>
+
+    <button class="animal-filter" data-species="sheep" onclick="filterAnimals('sheep', this)" data-i18n="filterSheep">🐑 Овцы</button>
+
+    <button class="animal-filter" data-species="goat" onclick="filterAnimals('goat', this)" data-i18n="filterGoats">🐐 Козы</button>
+
+    <button class="animal-filter" data-species="pig" onclick="filterAnimals('pig', this)" data-i18n="filterPigs">🐖 Свиньи</button>
+
+    <button class="animal-filter" data-species="chicken" onclick="filterAnimals('chicken', this)" data-i18n="filterChickens">🐔 Куры</button>
+  </div>
+
+  <!-- СПИСОК ЖИВОТНЫХ -->
+  <div class="panel">
+    <div class="animals" id="animalList"></div>
+
+    <div id="emptyAnimals" class="empty-animals" style="display:none" data-i18n="emptyAnimals">
+      В этой категории пока нет животных.
+    </div>
+  </div>
+
+</section>

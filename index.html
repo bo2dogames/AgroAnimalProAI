@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgroAnimalProAI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Яндекс Карты API 3.0 -->
+<script src="https://api-maps.yandex.ru/v3/?apikey=ec31b8ee-4652-445e-8ce2-030893f51c09&lang=ru_RU"></script>
+</head>
+
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">🌱</div>
+        <div>
+          <div class="brand-name">AgroAnimalProAI</div>
+          <div class="brand-sub">YOUR FARM. YOUR WORLD.</div>
+        </div>
+      </div>
+
+      <!-- ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА -->
+      <div class="language-switcher">
+  <button type="button" class="language-btn active" data-lang="ru">RU</button>
+  <button type="button" class="language-btn" data-lang="kk">KZ</button>
+  <button type="button" class="language-btn" data-lang="en">EN</button>
+  <button type="button" class="language-btn" data-lang="fr">FR</button>
+  <button type="button" class="language-btn" data-lang="zh">中文</button>
+</div>
+
+      <div class="player" onclick="openOwnerProfile()" style="cursor:pointer">
+  <div class="player-avatar" id="ownerAvatar">👨‍🌾</div>
+  <div>
+    <div class="player-name" id="ownerNickname">Моя ферма</div>
+    <div class="player-level" data-i18n="farmerLevel">
+  Уровень фермера · 1
+</div>
+  </div>
+</div>
+    </header>
+
+    <div class="layout">
+
+  <!-- БОКОВОЕ МЕНЮ -->
+  <aside class="sidebar">
+
+    <div class="side-title" data-i18n="world">МОЙ МИР</div>
+
+    <button class="nav-item active" data-page="home">
+      <span class="nav-icon">🏡</span>
+      <span data-i18n="farm">Моя ферма</span>
+    </button>
+
+    <button class="nav-item" data-page="animals">
+      <span class="nav-icon">🐮</span>
+      <span data-i18n="animals">Мои животные</span>
+    </button>
+
+    <button class="nav-item" data-page="territory">
+      <span class="nav-icon">🗺️</span>
+      <span data-i18n="territory">Моя территория</span>
+    </button>
+
+    <button class="nav-item" data-page="health">
+      <span class="nav-icon">💚</span>
+      <span data-i18n="health">Здоровье</span>
+    </button>
+
+    <button class="nav-item" data-page="ai">
+      <span class="nav-icon">✨</span>
+      <span data-i18n="ai">AI-помощник</span>
+    </button>
+
+    <button class="nav-item" data-page="genetics">
+      <span class="nav-icon">🧬</span>
+      <span data-i18n="genetics">Генетика</span>
+    </button>
+
+    <button class="nav-item" data-page="community">
+      <span class="nav-icon">👥</span>
+      <span data-i18n="community">Сообщество</span>
+    </button>
+
+    <div class="side-bottom">
+      🌿 <strong data-i18n="farmGrowing">Твоя ферма растёт!</strong><br>
+      <span data-i18n="farmDescription">
+        Добавляй животных, развивай территорию и следи за своим хозяйством.
+      </span>
+    </div>
+
+  </aside>
+
+  <main class="main">
+        <div id="pages-container"></div>
+      </main>
+
+    </div>
+
+    <div id="modals-container"></div>
+
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/loader.js"></script>
+</body>
+</html>
