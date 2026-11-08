@@ -2536,7 +2536,11 @@ image.src =
       this.style.display = 'none';
     };
 
-    
+    // Название загона
+const name = document.createElement('div');
+
+name.className = 'farm-paddock-name';
+name.textContent = animalNames[animal.species] || animal.species;
 
     // Добавляем элементы в загон
     paddock.append(image, name);
